@@ -36,7 +36,6 @@ cc.Class({
     update: function (dt) {
         if(!this.isMoving) return;
         var pos = this.player.position;
-        cc.log("magnitude: " + this.moveToPos.sub(pos).mag());
         if(this.moveToPos.sub(pos).mag() > 6){
             var direction = this.moveToPos.sub(pos).normalize();
             var newPos = pos.add(direction.mul(this.playerSpeed * dt));
