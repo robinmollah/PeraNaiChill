@@ -14,7 +14,7 @@ cc.Class({
     },
 
     onCollisionEnter(other, self){
-        other.node.y = 0;
+        cc.log("Collided : Deduct score");
     },
     onCollisionExit(other, self){
         cc.log("Collision done!");
