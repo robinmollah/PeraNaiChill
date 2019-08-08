@@ -1,3 +1,5 @@
+let spawnCo = 900;
+
 cc.Class({
     extends: cc.Component,
 
@@ -7,35 +9,32 @@ cc.Class({
             type: cc.Prefab,
         },
         spawnRate: {
-            default: 2,
-            max: 20,
-            min: 1,
+            default: 0.5,
+            max: 1,
+            min: 0,
         },
+        max_pera_count: {
+            min: 1,
+            max: 30,
+            step: 1,
+            default: 1,
+        }
     },
 
 
     onLoad: function () {
+        let self = this;
         this.peraPool = new cc.NodePool();
-        let initCount = 5;
+        let initCount = 10;
         for(let i = 0; i < initCount; i++){
             let pera = cc.instantiate(this.peraPrefab);
             this.peraPool.put(pera);
+            pera.parent = this.node;
+            pera.getComponent("Pera").init();
         }
-        this.schedule(this.createPera, Math.random());
+        this.node.on('passed', function(pera){
+            pera.getComponent('Pera').init();
+            self.peraPool.put(pera);
+        });
     },
-
-    createPera: function(){
-        let pera = null;
-        if(this.peraPool.size() > 0){
-            pera = this.peraPool.get();
-        } else {
-            pera = cc.instantiate(this.peraPrefab);
-        }
-        pera.parent = this.node;
-        pera.getComponent("Pera").init();
-        cc.log(pera.getComponent("Pera"));
-        this.scheduleOnce(function(){
-            this.peraPool.put(pera);
-        }, pera.getComponent("Pera").lifetime);
-    }
 });

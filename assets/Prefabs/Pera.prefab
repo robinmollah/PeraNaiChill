@@ -18,7 +18,7 @@
     "_parent": null,
     "_children": [],
     "_active": true,
-    "_level": 2,
+    "_level": 1,
     "_components": [
       {
         "__id__": 2
@@ -43,8 +43,8 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 84.49,
-      "height": 50.4
+      "width": 48.16,
+      "height": 30.24
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -91,8 +91,8 @@
     "_useOriginalSize": true,
     "_string": "Pera",
     "_N$string": "Pera",
-    "_fontSize": 40,
-    "_lineHeight": 40,
+    "_fontSize": 22.799999999999862,
+    "_lineHeight": 24.199999999999903,
     "_enableWrapText": true,
     "_N$file": null,
     "_isSystemFontUsed": true,
@@ -113,8 +113,8 @@
       "__id__": 1
     },
     "_enabled": true,
-    "speed": 400,
-    "lifetime": 3,
+    "speed": 320,
+    "lifetime": 4.800000000000008,
     "_id": ""
   },
   {
@@ -128,13 +128,13 @@
     "tag": 0,
     "_offset": {
       "__type__": "cc.Vec2",
-      "x": 0,
-      "y": 0
+      "x": 1,
+      "y": 1
     },
     "_size": {
       "__type__": "cc.Size",
-      "width": 84,
-      "height": 43
+      "width": 50,
+      "height": 26
     },
     "_id": ""
   },
@@ -144,7 +144,7 @@
       "__id__": 1
     },
     "asset": {
-      "__id__": 0
+      "__uuid__": "7703f2a8-8cf8-43cd-8ee0-3b088528f5b8"
     },
     "fileId": "aa3pS/+oJA1YQVRjgkn4Dv",
     "sync": false

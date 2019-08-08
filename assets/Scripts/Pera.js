@@ -1,3 +1,4 @@
+var peraTypes = [];
 
 cc.Class({
     extends: cc.Component,
@@ -9,20 +10,23 @@ cc.Class({
             min: 40,
             step: 10,
         },
-        lifetime: 100,
-    },
-
-
-    start () {
-
+        active: false,
     },
 
     update: function (dt) {
-        this.node.y -= Math.random() * dt * this.speed;
+        // if(!this.active) return;
+        this.node.y -= dt * this.speed;
+        if(this.node.y < -680){ // FIXME screen height
+            this.node.parent.emit('passed', this.node);
+        }
     },
 
     init: function(){
         this.node.y = 0;
-        // TODO Random x axis within viewport || Math.randome() - 0.5 for negative number
+        this.node.x = this.getRandomPosition();
+    },
+
+    getRandomPosition: function(){
+        return (Math.random()*0.9 - 0.5) * this.node.parent.width;
     }
 });
