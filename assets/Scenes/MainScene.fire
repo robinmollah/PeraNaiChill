@@ -252,8 +252,8 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 86.68,
-      "height": 50.4
+      "width": 61.54,
+      "height": 28.98
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -302,8 +302,8 @@
     "_useOriginalSize": false,
     "_string": "YOU",
     "_N$string": "YOU",
-    "_fontSize": 40,
-    "_lineHeight": 40,
+    "_fontSize": 28.399999999999835,
+    "_lineHeight": 23.399999999999878,
     "_enableWrapText": true,
     "_N$file": null,
     "_isSystemFontUsed": true,
@@ -332,8 +332,8 @@
     },
     "_size": {
       "__type__": "cc.Size",
-      "width": 97.87,
-      "height": 50.4
+      "width": 63.870000000000005,
+      "height": 26.4
     },
     "_id": "d7gaIQOARLP735SOU+E6PE"
   },
@@ -417,7 +417,7 @@
       "__uuid__": "7703f2a8-8cf8-43cd-8ee0-3b088528f5b8"
     },
     "spawnRate": 1,
-    "max_pera_count": 1,
+    "max_pera_count": 30,
     "_id": "f0wuHiwaNDj4TvEzoUV93A"
   },
   {

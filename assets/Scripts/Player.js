@@ -14,8 +14,10 @@ cc.Class({
     },
 
     onCollisionEnter(other, self){
+        if(other.getComponent('Pera').pickedPera.func){
+            other.getComponent('Pera').pickedPera.func();
+        }
         other.getComponent('Pera').init();
-        cc.log("Collided : Deduct score");
     },
 
     onCollisionExit(other, self){

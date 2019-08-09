@@ -1,4 +1,4 @@
-
+let playerSpeed = 0;
 cc.Class({
     extends: cc.Component,
 
@@ -8,7 +8,7 @@ cc.Class({
             default: null,
             type: cc.Node,
         },
-        playerSpeed: 200
+        playerSpeed: 200,
     },
 
     onLoad: function(){
@@ -31,6 +31,7 @@ cc.Class({
         self.canvas.on(cc.Node.EventType.TOUCH_END, function (event) {
             self.isMoving = false;
         }, self.node);
+        playerSpeed = this.playerSpeed;
     },
 
     update: function (dt) {

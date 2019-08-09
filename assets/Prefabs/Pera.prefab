@@ -43,7 +43,7 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 48.16,
+      "width": 59.56,
       "height": 30.24
     },
     "_anchorPoint": {
@@ -89,8 +89,8 @@
       }
     ],
     "_useOriginalSize": true,
-    "_string": "Pera",
-    "_N$string": "Pera",
+    "_string": "Peras",
+    "_N$string": "Peras",
     "_fontSize": 22.799999999999862,
     "_lineHeight": 24.199999999999903,
     "_enableWrapText": true,
@@ -114,7 +114,7 @@
     },
     "_enabled": true,
     "speed": 320,
-    "lifetime": 4.800000000000008,
+    "active": false,
     "_id": ""
   },
   {
@@ -125,16 +125,16 @@
       "__id__": 1
     },
     "_enabled": true,
-    "tag": 0,
+    "tag": 1,
     "_offset": {
       "__type__": "cc.Vec2",
-      "x": 1,
-      "y": 1
+      "x": 0,
+      "y": 0
     },
     "_size": {
       "__type__": "cc.Size",
-      "width": 50,
-      "height": 26
+      "width": 59.2,
+      "height": 27
     },
     "_id": ""
   },
