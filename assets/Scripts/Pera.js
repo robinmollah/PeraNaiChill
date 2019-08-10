@@ -26,7 +26,8 @@ let negatives = [{ name: 'Jam', func: function(){
     } },
     { name: 'fuckboys', func: function(){
         notify("Fuckboy! Maintain a healthy distance.");
-        // TODO Increase player size
+        let collider = cc.find('/Canvas/Player').getComponent(cc.BoxCollider);
+        collider.size.width *= 1.1;
         } },
     { name: 'Hoes', func: function(){
         notify("You are puzzled by a hoe.");
