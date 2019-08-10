@@ -24,7 +24,7 @@ cc.Class({
             this.score += other.getComponent('Pera').pickedPera.score;
             let scoreLabel = cc.find(scoreLabelPath).getComponent(cc.Label);
             let animation = cc.find('/Canvas/ScoreLabel').getComponent(cc.Animation);
-            animation.play('scoreup');
+            animation.play();
             scoreLabel.string = "Score: " + this.score;
         }
         other.getComponent('Pera').init();

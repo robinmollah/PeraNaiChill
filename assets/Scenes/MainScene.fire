@@ -541,11 +541,11 @@
       "__id__": 11
     },
     "_enabled": true,
-    "_defaultClip": null,
+    "_defaultClip": {
+      "__uuid__": "4f14b609-7d48-4a2d-835f-00b900939bf1"
+    },
     "_clips": [
-      {
-        "__uuid__": "289c1c17-0c40-4737-9de4-d36765ddce84"
-      }
+      null
     ],
     "playOnLoad": false,
     "_id": "c1rP3bENNP2ZgxRmb08Bbw"
@@ -777,11 +777,11 @@
       "__id__": 15
     },
     "_enabled": true,
-    "_defaultClip": null,
+    "_defaultClip": {
+      "__uuid__": "74b7780f-c1ad-4177-8e77-1b1a0965a33d"
+    },
     "_clips": [
-      {
-        "__uuid__": "252fe48c-56cd-41d4-aa34-59973242898c"
-      }
+      null
     ],
     "playOnLoad": false,
     "_id": "9ecNW6S09APKAcTd1QRK1X"
