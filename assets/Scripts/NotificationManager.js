@@ -13,6 +13,7 @@ cc.Class({
     show: function (msg) {
         let label = this.getComponent(cc.Label);
         label.string = msg;
+        this.unscheduleAllCallbacks();
         this.scheduleOnce(function () {
             label.string = '';
         }, 3); // Notification will be vanished after 2 sec.
