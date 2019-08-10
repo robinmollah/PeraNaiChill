@@ -9,28 +9,31 @@ let positives = [
     {name: 'Termpaper', score: 10},
     {name: 'Friends', score: 10},
     {name: 'Project', score: 10},];
-
+let notificationManagerPath = '/Canvas/Notification';
+let notify = function (msg){
+    return cc.find(notificationManagerPath).getComponent('NotificationManager').show(msg);
+};
 let negatives = [{ name: 'Jam', func: function(){
-        cc.log("You are slowed down by jam");
         let touchctrl = cc.find('TouchCtrl').getComponent('TouchCtrl');
         touchctrl.playerSpeed *= 0.8;
+        notify("Movement speed slowed down by jam.");
         // TODO scheduleOnce to increase the speed
     } },
     { name: 'Drama', func: function(){
-        cc.log("You stepped into a dramabaz. Speeding up.");
+        notify("Dramabaz, Speeding up.");
         cc.find('/Canvas/SpawnArea').getComponent('Spawner').speedUpFactor *= 1.2;
         // TODO scheduleOnce to decrease the pera time
     } },
     { name: 'fuckboys', func: function(){
-        cc.log("You are fucked up by a fuckboy.");
+        notify("Fuckboy! Maintain a healthy distance.");
         // TODO Increase player size
         } },
     { name: 'Hoes', func: function(){
-        cc.log("You are puzzled by a hoe.");
+        notify("You are puzzled by a hoe.");
         // TODO Puzzle the first 5 letters of words.
         } },
     { name: 'Snakes', func: function(){
-        cc.log("A venoumous snake bitten you. Avoid next 5 friends.");
+        notify("A venoumous snake bitten you. Avoid next 5 friends.");
         // TODO scheduleOnce to decrease
         } }
     ];

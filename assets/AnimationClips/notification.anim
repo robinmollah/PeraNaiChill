@@ -1,0 +1,33 @@
+{
+  "__type__": "cc.AnimationClip",
+  "_name": "notification",
+  "_objFlags": 0,
+  "_native": "",
+  "_duration": 2.9833333333333334,
+  "sample": 60,
+  "speed": 1,
+  "wrapMode": 1,
+  "curveData": {
+    "props": {
+      "x": [
+        {
+          "frame": 0,
+          "value": 515.15
+        },
+        {
+          "frame": 0.9833333333333333,
+          "value": 257.183
+        },
+        {
+          "frame": 1.55,
+          "value": 561.509
+        },
+        {
+          "frame": 2.9833333333333334,
+          "value": 148.36
+        }
+      ]
+    }
+  },
+  "events": []
+}

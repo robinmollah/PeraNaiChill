@@ -1,3 +1,5 @@
+let scoreLabelPath = 'Canvas/ScoreLabel/ScoreLabel';
+
 
 cc.Class({
     extends: cc.Component,
@@ -15,12 +17,14 @@ cc.Class({
         this.score = 0;
     },
 
-    onCollisionEnter(other, self){
+    onCollisionEnter(other){
         if(other.getComponent('Pera').pickedPera.func){
             other.getComponent('Pera').pickedPera.func();
         } else if(other.getComponent('Pera').pickedPera.score){
             this.score += other.getComponent('Pera').pickedPera.score;
-            let scoreLabel = cc.find('/Canvas/ScoreLabel').getComponent(cc.Label);
+            let scoreLabel = cc.find(scoreLabelPath).getComponent(cc.Label);
+            let animation = cc.find('/Canvas/ScoreLabel').getComponent(cc.Animation);
+            animation.play('scoreup');
             scoreLabel.string = "Score: " + this.score;
         }
         other.getComponent('Pera').init();
