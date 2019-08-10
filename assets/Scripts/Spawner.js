@@ -18,9 +18,9 @@ cc.Class({
             max: 30,
             step: 1,
             default: 1,
-        }
+        },
+        speedUpFactor: 1,
     },
-
 
     onLoad: function () {
         let self = this;
