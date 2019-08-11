@@ -27,14 +27,27 @@ cc.Class({
         this.peraPool = new cc.NodePool();
         let initCount = 10;
         for(let i = 0; i < initCount; i++){
-            let pera = cc.instantiate(this.peraPrefab);
-            this.peraPool.put(pera);
-            pera.parent = this.node;
-            pera.getComponent("Pera").init();
+            this.spawnPera(self);
         }
         this.node.on('passed', function(pera){
-            pera.getComponent('Pera').init();
-            self.peraPool.put(pera);
+            self.respawnPera(pera);
         });
+        this.node.on('wavePassed', function(){
+            self.spawnPera();
+            self.spawnPera();
+        });
+    },
+
+
+    spawnPera: function(){
+        let pera = cc.instantiate(this.peraPrefab);
+        this.respawnPera(pera);
+    },
+
+
+    respawnPera: function(pera){
+        this.peraPool.put(pera);
+        pera.parent = this.node;
+        pera.getComponent("Pera").init();
     },
 });

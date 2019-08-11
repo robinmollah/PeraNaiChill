@@ -25,6 +25,9 @@ cc.Class({
             let scoreLabel = cc.find(scoreLabelPath).getComponent(cc.Label);
             let animation = cc.find('/Canvas/ScoreLabel').getComponent(cc.Animation);
             animation.play();
+            if(this.score % 100 == 0){
+                other.node.parent.emit('wavePassed');
+            }
             scoreLabel.string = "Score: " + this.score;
         }
         other.getComponent('Pera').init();
