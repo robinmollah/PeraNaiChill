@@ -2,6 +2,7 @@ let peraTypes = ['Lift', 'Preadvising','Advising','Assignments','MNS',
                 'Termpaper','Drama','Project','Groupwork','Snakes','Jam',
                 'Fuckboys','Hoes','Seniors','Snakes'];
 let isShuffled = 0;
+let isBitten = 0;
 let positives = [
     { name : 'lift', score: 10},
     {name: 'Preadvising', score: 10},
@@ -11,6 +12,8 @@ let positives = [
     {name: 'Friends', score: 10},
     {name: 'Project', score: 10},];
 let notificationManagerPath = '/Canvas/Notification';
+
+
 let notify = function (msg){
     return cc.find(notificationManagerPath).getComponent('NotificationManager').show(msg);
 };
@@ -18,12 +21,10 @@ let negatives = [{ name: 'Jam', func: function(){
         let touchctrl = cc.find('TouchCtrl').getComponent('TouchCtrl');
         touchctrl.playerSpeed *= 0.8;
         notify("Movement speed slowed down by jam.");
-        // TODO scheduleOnce to increase the speed
     } },
     { name: 'Drama', func: function(){
         notify("Dramabaz, Speeding up.");
         cc.find('/Canvas/SpawnArea').getComponent('Spawner').speedUpFactor *= 1.2;
-        // TODO scheduleOnce to decrease the pera time
     } },
     { name: 'fuckboys', func: function(){
         notify("Fuckboy! Maintain a healthy distance.");
@@ -36,7 +37,7 @@ let negatives = [{ name: 'Jam', func: function(){
         } },
     { name: 'Snakes', func: function(){
         notify("A venoumous snake bitten you. Avoid next 5 friends.");
-        // TODO scheduleOnce to decrease
+        isBitten = 5; // getRandomPera() deducts the score of next 5 friends.
         } }
         // TODO reverse text
         // TODO talbahana move
@@ -91,6 +92,10 @@ cc.Class({
         let peras = Math.random() > 0.5 ? negatives : positives;
         let index = Math.random() * peras.length;
         index = Math.floor(index);
+        if(isBitten > 0 && peras[index].name.toLowerCase() == 'friends'){
+            peras[index].score = -10;
+            isBitten--;
+        }
         return this.pickedPera = peras[index];
     },
 
