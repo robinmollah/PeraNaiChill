@@ -1,6 +1,7 @@
 let peraTypes = ['Lift', 'Preadvising','Advising','Assignments','MNS',
                 'Termpaper','Drama','Project','Groupwork','Snakes','Jam',
                 'Fuckboys','Hoes','Seniors','Snakes'];
+let isShuffled = 0;
 let positives = [
     { name : 'lift', score: 10},
     {name: 'Preadvising', score: 10},
@@ -31,12 +32,14 @@ let negatives = [{ name: 'Jam', func: function(){
         } },
     { name: 'Hoes', func: function(){
         notify("You are puzzled by a hoe.");
-        // TODO Puzzle the first 5 letters of words.
+        isShuffled += 20; // getPeraName() reverses the program
         } },
     { name: 'Snakes', func: function(){
         notify("A venoumous snake bitten you. Avoid next 5 friends.");
         // TODO scheduleOnce to decrease
         } }
+        // TODO reverse text
+        // TODO talbahana move
     ];
 
 let score = 0;
@@ -96,14 +99,32 @@ cc.Class({
         string = string.toLowerCase();
 
         function randomizeString(string) {
-            // TODO randomize the string
-            return string;
+            let shuffled = '';
+            while(string.length > 0){
+                if(Math.random() > 0.5){
+                    shuffled = shuffled + string[string.length-1];
+                } else {
+                    shuffled = string[string.length - 1] + shuffled;
+                }
+                string = string.substring(0, string.length -1);
+            }
+            return shuffled;
+        }
+        function reverseString(string){
+            let reversed = '';
+            while(string.length > 0){
+                reversed += string[string.length-1];
+                string = string.substring(0, string.length -1);
+            }
+            return reversed;
         }
         string = string.substring(0,5);
-        string = randomizeString(string);
-        if(string.length < 5){
-            string += "s";
+        if(isShuffled > 0){
+            string = randomizeString(string);
+            isShuffled--;
         }
+        while(string.length < 5) string+= "s";
+
         return string;
     }
 });
