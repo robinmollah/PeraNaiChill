@@ -5,30 +5,36 @@ cc.Class({
     extends: cc.Component,
 
     properties: {
-
+        scoreLabel : {
+            default: null,
+            type: cc.Label,
+        },
+        animation: {
+            default: null,
+            type: cc.Animation,
+        }
     },
 
 
     onLoad () {
         let manager = cc.director.getCollisionManager();
         manager.enabled = true;
-        manager.enabledDebugDraw = true;
-        manager.enabledDrawBoundingBox = true;
+        manager.enabledDebugDraw = false;
+        manager.enabledDrawBoundingBox = false;
         this.score = 0;
     },
 
     onCollisionEnter(other){
-        if(other.getComponent('Pera').pickedPera.func){
-            other.getComponent('Pera').pickedPera.func();
-        } else if(other.getComponent('Pera').pickedPera.score){
-            this.score += other.getComponent('Pera').pickedPera.score;
-            let scoreLabel = cc.find(scoreLabelPath).getComponent(cc.Label);
-            let animation = cc.find('/Canvas/ScoreLabel').getComponent(cc.Animation);
-            animation.play();
+        let pickedPera = other.getComponent('Pera').pickedPera;
+        if(pickedPera.func){
+            pickedPera.func();
+        } else if(pickedPera.score){
+            this.score += pickedPera.score;
+            this.animation.play();
             if(this.score % 100 == 0){
                 other.node.parent.emit('wavePassed');
             }
-            scoreLabel.string = "Score: " + this.score;
+            this.scoreLabel.getComponent(cc.Label).string = "Score: " + this.score;
         }
         other.getComponent('Pera').init();
     },

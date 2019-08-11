@@ -76,6 +76,8 @@ cc.Class({
         this.node.y = 0;
         this.node.x = this.getRandomPosition();
         let spawner = this.node.parent.getComponent('Spawner');
+        this.node.setC
+        cc.log("COLOR: " + this.node.color.toCSS("rgb") + cc.Color.RED.toCSS("rgb"));
         this.realSpeed = this.speed;
         if(spawner.speedUpFactor != 1){
             this.realSpeed *= spawner.speedUpFactor;

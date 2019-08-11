@@ -12,20 +12,20 @@ cc.Class({
     },
 
     onLoad: function(){
-        var self = this;
+        let self = this;
         self.labelComp = self.player.getComponent(cc.Label);
         self.isMoving = false;
         self.moveToPos = cc.v2(0, 0);
         self.canvas.on(cc.Node.EventType.TOUCH_START, function(event){
             self.isMoving = true;
-            var touch = event.getTouches()[0];
-            var touchLocation = touch.getLocation();
-            var parent = self.player.parent;
+            let touch = event.getTouches()[0];
+            let touchLocation = touch.getLocation();
+            let parent = self.player.parent;
             self.moveToPos = parent.convertToNodeSpaceAR(touchLocation);
         }, self.node);
         self.canvas.on(cc.Node.EventType.TOUCH_MOVE, function(event){
-            var touch = event.getTouches()[0];
-            var touchLocation = touch.getLocation();
+            let touch = event.getTouches()[0];
+            let touchLocation = touch.getLocation();
             self.moveToPos = self.player.parent.convertToNodeSpaceAR(touchLocation);
         }, self.node);
         self.canvas.on(cc.Node.EventType.TOUCH_END, function (event) {
@@ -36,10 +36,11 @@ cc.Class({
 
     update: function (dt) {
         if(!this.isMoving) return;
-        var pos = this.player.position;
-        if(this.moveToPos.sub(pos).mag() > 6){
-            var direction = this.moveToPos.sub(pos).normalize();
-            var newPos = pos.add(direction.mul(this.playerSpeed * dt));
+        let pos = this.player.position;
+        let sub = this.moveToPos.sub(pos);
+        if(sub.mag() > 6){
+            let direction = sub.normalize();
+            let newPos = pos.add(direction.mul(this.playerSpeed * dt));
             this.player.setPosition(newPos);
         }
     },
