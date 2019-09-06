@@ -20,6 +20,9 @@ let notify = function (msg){
 let negatives = [{ name: 'Jam', func: function(){
         let touchctrl = cc.find('TouchCtrl').getComponent('TouchCtrl');
         touchctrl.playerSpeed *= 0.8;
+        if(touchctrl < 190){
+            cc.log("Game Over || You died in jam.");
+        }
         notify("Movement speed slowed down by jam.");
     } },
     { name: 'Drama', func: function(){
@@ -76,12 +79,15 @@ cc.Class({
         this.node.y = 0;
         this.node.x = this.getRandomPosition();
         let spawner = this.node.parent.getComponent('Spawner');
-        this.node.setC
-        cc.log("COLOR: " + this.node.color.toCSS("rgb") + cc.Color.RED.toCSS("rgb"));
         this.realSpeed = this.speed;
         if(spawner.speedUpFactor != 1){
             this.realSpeed *= spawner.speedUpFactor;
+            if(this.realSpeed >= 1100){
+                cc.log("Game Over || You are exhausted by Pera.");
+            }
         }
+        // TODO if speedFactor too much game over
+        // TODO if too much pera on board, game over, you are exhausted by pera
         this.getComponent(cc.Label).string = this.getPeraName();
         this.getComponent(cc.BoxCollider).size = new cc.size(this.node.width, this.node.height);
     },
