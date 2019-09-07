@@ -13,9 +13,9 @@ cc.Class({
     start () {
 
     },
-    startScene(sceneName){
+    startScene(){
         let director = cc.director;
-        director.loadScene('/Scenes/' + sceneName, null);
+        director.loadScene('/Scenes/GamePlayScene', null);
     }
 
     // update (dt) {},

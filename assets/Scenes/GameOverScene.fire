@@ -808,7 +808,7 @@
     "component": "",
     "_componentId": "311d7YSuHJCJ6x8H1WxVBHT",
     "handler": "startScene",
-    "customEventData": ""
+    "customEventData": "MainScene"
   },
   {
     "__type__": "311d7YSuHJCJ6x8H1WxVBHT",
