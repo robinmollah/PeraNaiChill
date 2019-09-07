@@ -44,4 +44,9 @@ cc.Class({
             this.player.setPosition(newPos);
         }
     },
+
+    gameOver: function(reason){
+      let director = cc.Director;
+      director.loadScene('/Scenes/GameOverScene', null);
+    },
 });

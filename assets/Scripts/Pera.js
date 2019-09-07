@@ -20,8 +20,8 @@ let notify = function (msg){
 let negatives = [{ name: 'Jam', func: function(){
         let touchctrl = cc.find('TouchCtrl').getComponent('TouchCtrl');
         touchctrl.playerSpeed *= 0.8;
-        if(touchctrl < 190){
-            cc.log("Game Over || You died in jam.");
+        if(touchctrl.playerSpeed < 190){
+            gameOver("You died in jam", );
         }
         notify("Movement speed slowed down by jam.");
     } },
@@ -83,7 +83,7 @@ cc.Class({
         if(spawner.speedUpFactor != 1){
             this.realSpeed *= spawner.speedUpFactor;
             if(this.realSpeed >= 1100){
-                cc.log("Game Over || You are exhausted by Pera.");
+                gameOver("You are exhausted by Peras.");
             }
         }
         // TODO if speedFactor too much game over
@@ -107,7 +107,7 @@ cc.Class({
         return this.pickedPera = peras[index];
     },
 
-    getPeraName() {
+    getPeraName: function() {
         let string = this.getRandomPera().name;
         string = string.toLowerCase();
 
@@ -139,5 +139,17 @@ cc.Class({
         while(string.length < 5) string+= "s";
 
         return string;
-    }
+    },
 });
+
+function gameOver(reason){
+    let playerScore = cc.find('/Canvas/Player').getComponent('Player').score;
+    cc.director.loadScene('/Scenes/GameOverScene', function(){
+        let canvas = cc.director.getScene().getChildByName('Canvas');
+        let label = canvas.getChildByName('ScoreLabel')
+            .getComponent(cc.Label);
+        let reasonLabel = canvas.getChildByName('ReasonLabel').getComponent(cc.Label);
+        label.string = "Score: " + playerScore;
+        reasonLabel.string = reason;
+    });
+};

@@ -77,14 +77,14 @@
         "__id__": 10
       },
       {
-        "__id__": 17
+        "__id__": 19
       }
     ],
     "_active": true,
     "_level": 0,
     "_components": [
       {
-        "__id__": 19
+        "__id__": 21
       }
     ],
     "_prefab": null,
@@ -450,6 +450,9 @@
     "_components": [
       {
         "__id__": 16
+      },
+      {
+        "__id__": 18
       }
     ],
     "_prefab": null,
@@ -723,7 +726,11 @@
     "_enabled": true,
     "duration": 0.1,
     "zoomScale": 1.2,
-    "clickEvents": [],
+    "clickEvents": [
+      {
+        "__id__": 17
+      }
+    ],
     "_N$interactable": true,
     "_N$enableAutoGrayEffect": false,
     "_N$transition": 2,
@@ -794,8 +801,28 @@
     "_id": "0blrGiC0RBk7h3Q3dfI95S"
   },
   {
+    "__type__": "cc.ClickEvent",
+    "target": {
+      "__id__": 10
+    },
+    "component": "",
+    "_componentId": "311d7YSuHJCJ6x8H1WxVBHT",
+    "handler": "startScene",
+    "customEventData": ""
+  },
+  {
+    "__type__": "311d7YSuHJCJ6x8H1WxVBHT",
+    "_name": "",
+    "_objFlags": 0,
+    "node": {
+      "__id__": 10
+    },
+    "_enabled": true,
+    "_id": "c0r0yW3YBN+52D5FRmgPjX"
+  },
+  {
     "__type__": "cc.Node",
-    "_name": "New Label",
+    "_name": "ScoreLabel",
     "_objFlags": 0,
     "_parent": {
       "__id__": 2
@@ -805,7 +832,7 @@
     "_level": 1,
     "_components": [
       {
-        "__id__": 18
+        "__id__": 20
       }
     ],
     "_prefab": null,
@@ -858,7 +885,7 @@
     "_name": "",
     "_objFlags": 0,
     "node": {
-      "__id__": 17
+      "__id__": 19
     },
     "_enabled": true,
     "_materials": [
