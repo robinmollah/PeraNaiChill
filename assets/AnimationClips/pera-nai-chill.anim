@@ -1,0 +1,33 @@
+{
+  "__type__": "cc.AnimationClip",
+  "_name": "pera-nai-chill",
+  "_objFlags": 0,
+  "_native": "",
+  "_duration": 0.38333333333333336,
+  "sample": 60,
+  "speed": 1,
+  "wrapMode": 1,
+  "curveData": {
+    "props": {
+      "angle": [
+        {
+          "frame": 0,
+          "value": 0
+        },
+        {
+          "frame": 0.15,
+          "value": 19.436
+        },
+        {
+          "frame": 0.25,
+          "value": -16.388
+        },
+        {
+          "frame": 0.38333333333333336,
+          "value": 0
+        }
+      ]
+    }
+  },
+  "events": []
+}
